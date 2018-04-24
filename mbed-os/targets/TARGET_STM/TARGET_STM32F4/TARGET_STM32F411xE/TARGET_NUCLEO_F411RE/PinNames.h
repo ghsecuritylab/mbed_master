@@ -147,6 +147,7 @@ typedef enum {
     SERIAL_RX   = STDIO_UART_RX,
 	BUS485_TX   = D8,
 	BUS485_RX   = D2,
+	BUS485_EN	= D3,
     USBTX       = STDIO_UART_TX,
     USBRX       = STDIO_UART_RX,
     I2C_SCL     = PB_8,

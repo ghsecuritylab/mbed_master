@@ -12,6 +12,14 @@
 
 #include "Console.h"
 
+void Console::reset(int argc,char *argv[])
+{
+	printf(BLUE("Rebooting..."));
+	printf("\r\n");
+	NVIC_SystemReset();
+}
+
+
 void Console::help(int argc,char *argv[])
 {
    printf(GREEN("TermCMD commands:\r\n"));
@@ -79,7 +87,7 @@ void Console::date(int argc,char *argv[])
     }
 
     seconds = time(0);
-    printf("Seconds since January 1, 1970: %d\n", (int)seconds);
+    printf("Seconds since January 1, 1970: %d\r\n", (int)seconds);
     printf("Date: %s\r\n", ctime(&seconds));
 
 }
@@ -88,6 +96,7 @@ const Console::cmd_list_t shellCommands[] =
 {
       {"MBED OS"    ,0,0,0},
       {"h",       "",                   "Show this help info", Console::help},
+	  {"r",      "",                   "Reset the device", Console::reset},
       {"dt",      "",                   "Dump Thread info", Console::dumpThreadInfo},
       {"date",    "<yyyy mm dd HH:MM>", "show / set current time", Console::date},
       {0,0,0}

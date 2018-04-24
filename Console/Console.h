@@ -54,6 +54,7 @@ public:
     } cmd_list_t;
 
     static cmd_list_t *mCmdTable[];
+    static void reset(int argc,char *argv[]);
     static void help(int argc,char *argv[]);
     static void dumpThreadInfo(int argc,char *argv[]);
     static void date(int argc,char *argv[]);
